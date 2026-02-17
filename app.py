@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 from datetime import datetime, timedelta
+import os
 
+API_KEY = os.environ.get('GNEWS_API_KEY')
 app = Flask(__name__)
 
-API_KEY = '2c5c0959b11863864b07c3d65fd6a8f4' 
 BASE_URL = 'https://gnews.io/api/v4/search'
 
 @app.route('/')
