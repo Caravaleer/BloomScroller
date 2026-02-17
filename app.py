@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # REPLACE WITH YOUR API KEY
-API_KEY = 'YOUR_GNEWS_API_KEY' 
+API_KEY = os.environ.get('GNEWS_API_KEY')
 BASE_URL = 'https://gnews.io/api/v4/search'
 
 @app.route('/')
@@ -46,3 +46,4 @@ def get_news():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+
