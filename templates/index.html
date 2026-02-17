@@ -11,7 +11,13 @@
 
     <div class="ui-layer">
         <div class="top-bar">
-            <h3>ReelNews</h3>
+            <form id="searchForm" onsubmit="handleSearch(event)">
+                <div class="search-wrapper">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input type="text" id="searchInput" placeholder="Search topics..." autocomplete="off">
+                </div>
+            </form>
+            
             <select id="dateFilter">
                 <option value="all">Any Time</option>
                 <option value="today">Today</option>
@@ -23,17 +29,19 @@
             <button class="tag active" onclick="filterTag('technology', this)">Tech</button>
             <button class="tag" onclick="filterTag('business', this)">Biz</button>
             <button class="tag" onclick="filterTag('science', this)">Science</button>
-            <button class="tag" onclick="filterTag('gaming', this)">Gaming</button>
+            <button class="tag" onclick="filterTag('crypto', this)">Crypto</button>
             <button class="tag" onclick="filterTag('entertainment', this)">Entmt</button>
         </div>
     </div>
 
     <main id="reel-container">
-        <div class="loader-screen">
-            <div class="spinner"></div>
-            <p>Loading your feed...</p>
-        </div>
-    </main>
+        </main>
+    
+    <div id="sentinel"></div>
+
+    <div id="page-loader" class="mini-loader">
+        <div class="spinner-small"></div>
+    </div>
 
     <script src="/static/script.js"></script>
 </body>
