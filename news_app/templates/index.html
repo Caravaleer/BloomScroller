@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ReelNews</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+
+    <div class="ui-layer">
+        <div class="top-bar">
+            <h3>ReelNews</h3>
+            <select id="dateFilter">
+                <option value="all">Any Time</option>
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+            </select>
+        </div>
+
+        <div class="tag-scroller">
+            <button class="tag active" onclick="filterTag('technology', this)">Tech</button>
+            <button class="tag" onclick="filterTag('business', this)">Biz</button>
+            <button class="tag" onclick="filterTag('science', this)">Science</button>
+            <button class="tag" onclick="filterTag('gaming', this)">Gaming</button>
+            <button class="tag" onclick="filterTag('entertainment', this)">Entmt</button>
+        </div>
+    </div>
+
+    <main id="reel-container">
+        <div class="loader-screen">
+            <div class="spinner"></div>
+            <p>Loading your feed...</p>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
