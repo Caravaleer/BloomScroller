@@ -3,9 +3,10 @@ import requests
 from datetime import datetime, timedelta
 import os
 
-API_KEY = os.environ.get('GNEWS_API_KEY')
 app = Flask(__name__)
 
+# REPLACE WITH YOUR API KEY
+API_KEY = 'YOUR_GNEWS_API_KEY' 
 BASE_URL = 'https://gnews.io/api/v4/search'
 
 @app.route('/')
@@ -16,6 +17,7 @@ def index():
 def get_news():
     query = request.args.get('q', 'news')
     date_filter = request.args.get('date', 'all')
+    page = request.args.get('page', 1) # Default to page 1
     
     params = {
         'q': query,
@@ -23,7 +25,8 @@ def get_news():
         'lang': 'en',
         'max': 10,
         'sortby': 'publishedAt',
-        'expand': 'content' # Try to get content snippet
+        'page': page,      # Pass page number to GNews
+        'expand': 'content'
     }
 
     if date_filter != 'all':
